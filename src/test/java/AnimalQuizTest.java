@@ -106,7 +106,7 @@ public class AnimalQuizTest {
     public void testAddSecond() {
     	
     	Animal newQuestion = new Animal("Is it a kind of dog?", true);
-        Animal newAnimal = new Animal("a Shih Tzu", false);
+        Animal newAnimal = new Animal("a Shih Tzu" + "", false);
         // There should only be two Animal in the tree 'a rabbit and an elephant',
         // and one question(the root node)
         Animal lastAnimal = quiz.getAnimalTree().yes; 
