@@ -69,11 +69,10 @@ public class AnimalQuiz {
 	 */
 	public void addNewAnimal(Animal newQuestion, Animal newAnimal, Animal lastAnimal, String lastAnswer, String answerForNewQuestion){
 
-        Animal newNode = null;
-
+        Animal newNode;
         if (lastAnimal.parent != null) {
+            newNode = lastAnimal.parent;
             if(lastAnswer.equalsIgnoreCase("y")) {
-                newNode = lastAnimal.parent;
                 if(answerForNewQuestion.equalsIgnoreCase("y")){
                     newQuestion.yes = newAnimal;
                     newQuestion.no = lastAnimal;
@@ -82,6 +81,16 @@ public class AnimalQuiz {
                     newQuestion.no = newAnimal;
                 }
                 newNode.yes = newQuestion;
+            }
+            else{
+                if(answerForNewQuestion.equalsIgnoreCase("y")){
+                    newQuestion.yes = newAnimal;
+                    newQuestion.no = lastAnimal;
+                }else{
+                    newQuestion.yes = lastAnimal;
+                    newQuestion.no = newAnimal;
+                }
+                newNode.no = newQuestion;
             }
         } else {
             newNode = newQuestion;
